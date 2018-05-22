@@ -43,9 +43,5 @@ for i=2:N+1
     T(i) = T(i-1) + h;
 
 end
-
-
-
-
 end
 
