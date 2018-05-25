@@ -17,15 +17,15 @@ xunit_3 = 0.1 * cos(th) + 0.15;
 yunit_3 = 0.1 * sin(th) - 0.6;
 hold on
 
-xunit = xunit_12;
-yunit = yunit_12;
+xunit = xunit_3;
+yunit = yunit_3;
 plot(xunit, yunit)
 
 T_12 = linspace(t0, tf_12, N);
 T_3 = linspace(t0, tf_3, N);
 
-A = A1;
-T = T_12;
+A = A3;
+T = T_3;
 
 
 
@@ -42,7 +42,7 @@ end
 T_cercles_12 = linspace(t0, tf_12, 10);
 T_cercles_3 = linspace(t0, tf_3, 5);
 
-T_cercles = T_cercles_12;
+T_cercles = T_cercles_3;
 
 mat_y0_cercles = [xunit(1:100); yunit(1:100)];
 

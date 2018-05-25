@@ -24,7 +24,7 @@ plot(xunit, yunit)
 T_12 = linspace(t0, tf_12, N);
 T_3 = linspace(t0, tf_3, N);
 
-A = A1;
+A = A2;
 T = T_12;
 
 

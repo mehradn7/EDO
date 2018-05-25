@@ -20,12 +20,12 @@ for i=2:N+1
     nphi = nphi + 2;
     X_prec = X + 1;
     k = 0;
-    while (norm(X - X_prec) > f_eps) && (k <= nb_itmax)
+    while (norm(X - X_prec) > f_eps) && (k < nb_itmax)
         X_prec = X;
-        F1 = handler_phi(T(i-1) + (1/2 - sqrt(3)/6)*h, Y(i-1,:) + h*((1/4)*[X(1), X(2)] + ...
-        + (1/4 - sqrt(3)/6) * [X(3), X(4)]));
-        F2 = handler_phi(T(i-1) + (1/2 + sqrt(3)/6)*h, Y(i-1,:) + h*((1/4 +sqrt(3)/6)*[X(1), X(2)] + ...
-        + (1/4) * [X(3), X(4)]));
+        F1 = handler_phi(T(i-1) + (1/2 - sqrt(3)/6)*h, Y(i-1,:) + h*((1/4)*X(1) + ...
+        + (1/4 - sqrt(3)/6) * X(2)));
+        F2 = handler_phi(T(i-1) + (1/2 + sqrt(3)/6)*h, Y(i-1,:) + h*((1/4 +sqrt(3)/6)*X(1) + ...
+        + (1/4) * X(2)));
         X = [F1; F2];   
         nphi = nphi + 2;
         k = k+1;
@@ -36,11 +36,12 @@ for i=2:N+1
         ifail = [ifail k];
     end
     
-    k1 = [X(1), X(2)];
-    k2 = [X(3), X(4)];
+    k1 = X(1);
+    k2 = X(2);
     
     Y(i,:) = Y(i-1, :) + (1/2)*h*k1 + (1/2)*h*k2;
     T(i) = T(i-1) + h;
 
 end
 end
+
